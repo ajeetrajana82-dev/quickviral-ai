@@ -7,40 +7,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-serif-title { font-family: 'Playfair Display', serif; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-white text-gray-800 antialiased">
+<body class="bg-[#fafafa] text-gray-800 antialiased pb-12">
 
   <!-- 1. TOP ANNOUNCEMENT BAR -->
-  <div class="bg-[#181818] text-white text-[11px] py-2 px-4 flex justify-between items-center font-medium border-b border-gray-800">
-    <div class="flex items-center gap-4">
-      <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-rose-400"></i> COD Available</span>
+  <div class="bg-[#181818] text-white text-[10px] sm:text-[11px] py-2 px-3 sm:px-4 flex justify-between items-center font-medium">
+    <div class="flex items-center gap-2 sm:gap-4 truncate">
+      <span class="flex items-center gap-1"><i class="fa-solid fa-truck-fast text-rose-400"></i> COD Available</span>
       <span class="text-gray-500">|</span>
-      <span>Free Delivery on Orders Above ₹999</span>
-      <span class="text-gray-500 hidden sm:inline">|</span>
-      <span class="hidden sm:inline">Easy Returns</span>
+      <span>Free Delivery Above ₹999</span>
+      <span class="text-gray-500 hidden md:inline">|</span>
+      <span class="hidden md:inline">Easy Returns</span>
     </div>
-    <div class="flex items-center gap-1.5 text-gray-300">
+    <div class="flex items-center gap-1.5 text-gray-300 flex-shrink-0">
       <span>Fashion that fits your vibe</span>
       <i class="fa-regular fa-heart text-rose-400 text-xs"></i>
     </div>
   </div>
 
-  <!-- 2. MAIN NAVIGATION -->
+  <!-- 2. MAIN NAVBAR -->
   <header class="bg-white border-b sticky top-0 z-40 shadow-xs">
-    <div class="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between gap-6">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
       <!-- Logo -->
       <a href="#" class="flex flex-col">
         <span class="font-serif-title text-2xl md:text-3xl font-bold tracking-widest text-[#111]">TRENDORA</span>
-        <span class="text-[7.5px] tracking-[0.32em] text-gray-400 font-semibold uppercase -mt-1">Your Style. Your Trend.</span>
+        <span class="text-[7px] md:text-[7.5px] tracking-[0.32em] text-gray-400 font-semibold uppercase -mt-1">Your Style. Your Trend.</span>
       </a>
 
-      <!-- Navigation Links -->
+      <!-- Desktop Links -->
       <nav class="hidden lg:flex items-center gap-6 text-[13px] font-semibold text-gray-700">
         <a href="#" class="text-rose-600 border-b-2 border-rose-600 pb-0.5">Home</a>
         <a href="#categories" class="hover:text-rose-600 flex items-center gap-1 transition">Women <i class="fa-solid fa-chevron-down text-[9px] text-gray-400"></i></a>
@@ -48,19 +48,17 @@
         <a href="#bestsellers" class="hover:text-rose-600 transition">Best Sellers</a>
         <a href="#promo" class="hover:text-rose-600 transition">Under ₹299</a>
         <a href="#promo" class="hover:text-rose-600 transition">Under ₹499</a>
-        <a href="#footer" class="hover:text-rose-600 transition">Contact</a>
       </nav>
 
       <!-- Search Bar -->
       <div class="flex-1 max-w-sm hidden md:block">
         <div class="relative">
-          <input type="text" placeholder="Search for tops, dresses, kurtis..." class="w-full bg-[#f8f9fa] border border-gray-200 rounded-full py-2 pl-9 pr-10 text-xs text-gray-700 outline-none focus:border-rose-400 focus:bg-white transition">
+          <input type="text" placeholder="Search for tops, dresses, kurtis..." class="w-full bg-[#f8f9fa] border border-gray-200 rounded-full py-2 pl-9 pr-8 text-xs outline-none focus:border-rose-400 focus:bg-white transition">
           <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-gray-400 text-xs"></i>
-          <button class="absolute right-3 top-2 text-gray-400 hover:text-black text-xs"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
 
-      <!-- Action Icons -->
+      <!-- Actions -->
       <div class="flex items-center gap-4">
         <button class="relative text-gray-700 hover:text-rose-600 transition">
           <i class="fa-regular fa-heart text-lg"></i>
@@ -74,214 +72,181 @@
     </div>
   </header>
 
-  <!-- 3. HERO SLIDER BANNER -->
-  <section class="max-w-7xl mx-auto px-4 mt-4">
-    <div class="relative rounded-2xl overflow-hidden bg-[#ecd7c8] flex flex-col md:flex-row items-center justify-between min-h-[380px] p-8 md:p-14 shadow-xs">
+  <!-- 3. HERO BANNER (Arrows Fixed to Card Container) -->
+  <section class="max-w-7xl mx-auto px-3 sm:px-4 mt-3">
+    <div class="relative rounded-2xl overflow-hidden bg-[#eeddc9] flex flex-col md:flex-row items-center justify-between p-5 md:p-12 shadow-xs">
       
-      <!-- Arrows -->
-      <button class="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center shadow-md text-sm z-20">
+      <!-- Side Navigation Arrows -->
+      <button class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/60 hover:bg-black text-white rounded-full flex items-center justify-center shadow-md text-xs md:text-sm z-20">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
-      <button class="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center shadow-md text-sm z-20">
+      <button class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/60 hover:bg-black text-white rounded-full flex items-center justify-center shadow-md text-xs md:text-sm z-20">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
 
-      <!-- Content -->
-      <div class="max-w-md space-y-4 z-10 text-center md:text-left">
-        <span class="text-rose-700 font-bold text-xs tracking-[0.25em] uppercase">T R E N D O R A</span>
-        <h1 class="font-serif-title text-4xl md:text-6xl font-black text-[#1a1a1a] leading-none">
+      <!-- Banner Text -->
+      <div class="max-w-md space-y-3 z-10 text-center md:text-left mb-4 md:mb-0">
+        <span class="text-rose-700 font-bold text-[10px] md:text-xs tracking-[0.28em] uppercase">T R E N D O R A</span>
+        <h1 class="font-serif-title text-3xl md:text-5xl font-black text-[#1a1a1a] leading-tight">
           YOUR STYLE.<br>YOUR TREND.
         </h1>
-        <p class="text-gray-700 text-sm md:text-base font-medium">Trending fashion at prices you'll love.</p>
-        <a href="#trending" class="inline-flex items-center gap-2 bg-[#b8484a] hover:bg-[#9f393b] text-white text-xs md:text-sm font-bold px-7 py-3 rounded-md shadow transition">
+        <p class="text-gray-700 text-xs md:text-sm font-medium">Trending fashion at prices you'll love.</p>
+        <a href="#trending" class="inline-flex items-center gap-2 bg-[#b8484a] hover:bg-[#9f393b] text-white text-xs md:text-sm font-bold px-6 py-2.5 rounded-md shadow transition">
           SHOP NOW ➔
         </a>
       </div>
 
-      <!-- Hero Model Image -->
-      <div class="relative mt-6 md:mt-0">
-        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80" alt="Trendora Model" class="w-72 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-xl border-4 border-white/60">
-        <div class="absolute -right-4 top-10 hidden lg:block font-serif-title italic text-gray-800 text-sm leading-tight bg-white/70 backdrop-blur-xs p-3 rounded-lg border border-white/50">
-          "Good Outfits<br>Better Mood ♡"
-        </div>
+      <!-- Banner Image -->
+      <div class="w-full max-w-[260px] md:max-w-sm mx-auto z-10">
+        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80" alt="Trendora Fashion" class="w-full h-72 md:h-80 object-cover rounded-xl shadow-lg border-2 border-white/80">
       </div>
 
-      <!-- Dots Indicator -->
-      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20">
-        <span class="w-2.5 h-2.5 rounded-full bg-black"></span>
-        <span class="w-2 h-2 rounded-full bg-black/30"></span>
-        <span class="w-2 h-2 rounded-full bg-black/30"></span>
-        <span class="w-2 h-2 rounded-full bg-black/30"></span>
-        <span class="w-2 h-2 rounded-full bg-black/30"></span>
+      <!-- Dots -->
+      <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20">
+        <span class="w-2 h-2 rounded-full bg-black"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-black/30"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-black/30"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-black/30"></span>
       </div>
     </div>
   </section>
 
-  <!-- 4. TRUST BADGES STRIP -->
-  <section class="max-w-7xl mx-auto px-4 mt-6">
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 py-4 px-6 bg-white rounded-xl border border-gray-100 shadow-xs text-center">
-      <div class="flex items-center justify-center gap-3">
-        <i class="fa-solid fa-truck-moving text-2xl text-gray-700"></i>
-        <div class="text-left"><p class="text-xs font-bold text-gray-900">COD Available</p><p class="text-[10px] text-gray-500 leading-none">Pay Only When You Receive</p></div>
+  <!-- 4. TRUST BADGES -->
+  <section class="max-w-7xl mx-auto px-3 sm:px-4 mt-5">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 sm:p-4 bg-white rounded-xl border border-gray-100 shadow-xs text-center">
+      <div class="flex items-center justify-center gap-2">
+        <i class="fa-solid fa-truck-moving text-xl text-gray-700"></i>
+        <div class="text-left"><p class="text-[11px] font-bold text-gray-900 leading-tight">COD Available</p><p class="text-[9px] text-gray-500">Pay on delivery</p></div>
       </div>
-      <div class="flex items-center justify-center gap-3">
-        <i class="fa-solid fa-shield-halved text-2xl text-gray-700"></i>
-        <div class="text-left"><p class="text-xs font-bold text-gray-900">Secure Payments</p><p class="text-[10px] text-gray-500 leading-none">100% Safe & Secure</p></div>
+      <div class="flex items-center justify-center gap-2">
+        <i class="fa-solid fa-shield-halved text-xl text-gray-700"></i>
+        <div class="text-left"><p class="text-[11px] font-bold text-gray-900 leading-tight">Secure Payments</p><p class="text-[9px] text-gray-500">100% Safe</p></div>
       </div>
-      <div class="flex items-center justify-center gap-3">
-        <i class="fa-solid fa-box-open text-2xl text-gray-700"></i>
-        <div class="text-left"><p class="text-xs font-bold text-gray-900">Free Delivery</p><p class="text-[10px] text-gray-500 leading-none">On Orders Above ₹999</p></div>
+      <div class="flex items-center justify-center gap-2">
+        <i class="fa-solid fa-box-open text-xl text-gray-700"></i>
+        <div class="text-left"><p class="text-[11px] font-bold text-gray-900 leading-tight">Free Delivery</p><p class="text-[9px] text-gray-500">Above ₹999</p></div>
       </div>
-      <div class="flex items-center justify-center gap-3">
-        <i class="fa-solid fa-arrow-rotate-left text-2xl text-gray-700"></i>
-        <div class="text-left"><p class="text-xs font-bold text-gray-900">Easy Returns</p><p class="text-[10px] text-gray-500 leading-none">Hassle Free Process</p></div>
+      <div class="flex items-center justify-center gap-2">
+        <i class="fa-solid fa-arrow-rotate-left text-xl text-gray-700"></i>
+        <div class="text-left"><p class="text-[11px] font-bold text-gray-900 leading-tight">Easy Returns</p><p class="text-[9px] text-gray-500">Doorstep pickup</p></div>
       </div>
-      <div class="flex items-center justify-center gap-3 col-span-2 md:col-span-1">
-        <i class="fa-solid fa-headset text-2xl text-gray-700"></i>
-        <div class="text-left"><p class="text-xs font-bold text-gray-900">24/7 Support</p><p class="text-[10px] text-gray-500 leading-none">We're Here To Help</p></div>
+      <div class="flex items-center justify-center gap-2 col-span-2 md:col-span-1">
+        <i class="fa-solid fa-headset text-xl text-gray-700"></i>
+        <div class="text-left"><p class="text-[11px] font-bold text-gray-900 leading-tight">24/7 Support</p><p class="text-[9px] text-gray-500">Help desk active</p></div>
       </div>
     </div>
   </section>
 
   <!-- 5. SHOP BY CATEGORY -->
-  <section id="categories" class="max-w-7xl mx-auto px-4 mt-10">
-    <div class="flex justify-between items-center mb-5">
-      <h2 class="font-serif-title text-xl md:text-2xl font-bold text-gray-900">Shop by Category</h2>
+  <section id="categories" class="max-w-7xl mx-auto px-3 sm:px-4 mt-8">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="font-serif-title text-lg md:text-xl font-bold text-gray-900">Shop by Category</h2>
       <a href="#" class="text-xs font-bold text-gray-500 hover:text-black flex items-center gap-1">View All <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
     </div>
 
-    <div class="grid grid-cols-4 md:grid-cols-8 gap-4 text-center">
-      <!-- Item -->
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-3 text-center">
       <div class="flex flex-col items-center group cursor-pointer" onclick="filterByCat('Kurtis')">
-        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-rose-100 shadow-xs group-hover:scale-105 transition">
-          <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300" class="w-full h-full object-cover">
-        </div>
-        <span class="text-xs font-semibold mt-2 text-gray-800">Kurtis</span>
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-rose-100 shadow-xs group-hover:scale-105 transition"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300" class="w-full h-full object-cover"></div>
+        <span class="text-[11px] font-semibold mt-1.5 text-gray-800">Kurtis</span>
       </div>
-
       <div class="flex flex-col items-center group cursor-pointer" onclick="filterByCat('Dresses')">
-        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-rose-100 shadow-xs group-hover:scale-105 transition">
-          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300" class="w-full h-full object-cover">
-        </div>
-        <span class="text-xs font-semibold mt-2 text-gray-800">Dresses</span>
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-rose-100 shadow-xs group-hover:scale-105 transition"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300" class="w-full h-full object-cover"></div>
+        <span class="text-[11px] font-semibold mt-1.5 text-gray-800">Dresses</span>
       </div>
-
       <div class="flex flex-col items-center group cursor-pointer" onclick="filterByCat('Tops')">
-        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-rose-100 shadow-xs group-hover:scale-105 transition">
-          <img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?w=300" class="w-full h-full object-cover">
-        </div>
-        <span class="text-xs font-semibold mt-2 text-gray-800">Tops</span>
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-rose-100 shadow-xs group-hover:scale-105 transition"><img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?w=300" class="w-full h-full object-cover"></div>
+        <span class="text-[11px] font-semibold mt-1.5 text-gray-800">Tops</span>
       </div>
-
       <div class="flex flex-col items-center group cursor-pointer" onclick="filterByCat('Co-ord Sets')">
-        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-rose-100 shadow-xs group-hover:scale-105 transition">
-          <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=300" class="w-full h-full object-cover">
-        </div>
-        <span class="text-xs font-semibold mt-2 text-gray-800">Co-ord Sets</span>
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-rose-100 shadow-xs group-hover:scale-105 transition"><img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=300" class="w-full h-full object-cover"></div>
+        <span class="text-[11px] font-semibold mt-1.5 text-gray-800">Co-ord Sets</span>
       </div>
-
       <div class="flex flex-col items-center group cursor-pointer" onclick="filterByCat('Sarees')">
-        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-rose-100 shadow-xs group-hover:scale-105 transition">
-          <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=300" class="w-full h-full object-cover">
-        </div>
-        <span class="text-xs font-semibold mt-2 text-gray-800">Sarees</span>
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-rose-100 shadow-xs group-hover:scale-105 transition"><img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=300" class="w-full h-full object-cover"></div>
+        <span class="text-[11px] font-semibold mt-1.5 text-gray-800">Sarees</span>
       </div>
-
       <div class="flex flex-col items-center group cursor-pointer" onclick="filterByCat('Jeans')">
-        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-rose-100 shadow-xs group-hover:scale-105 transition">
-          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300" class="w-full h-full object-cover">
-        </div>
-        <span class="text-xs font-semibold mt-2 text-gray-800">Jeans</span>
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-rose-100 shadow-xs group-hover:scale-105 transition"><img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300" class="w-full h-full object-cover"></div>
+        <span class="text-[11px] font-semibold mt-1.5 text-gray-800">Jeans</span>
       </div>
-
       <div class="flex flex-col items-center group cursor-pointer" onclick="filterByCat('Footwear')">
-        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-rose-100 shadow-xs group-hover:scale-105 transition">
-          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=300" class="w-full h-full object-cover">
-        </div>
-        <span class="text-xs font-semibold mt-2 text-gray-800">Footwear</span>
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-rose-100 shadow-xs group-hover:scale-105 transition"><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=300" class="w-full h-full object-cover"></div>
+        <span class="text-[11px] font-semibold mt-1.5 text-gray-800">Footwear</span>
       </div>
-
       <div class="flex flex-col items-center group cursor-pointer" onclick="filterByCat('Accessories')">
-        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-rose-100 shadow-xs group-hover:scale-105 transition">
-          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300" class="w-full h-full object-cover">
-        </div>
-        <span class="text-xs font-semibold mt-2 text-gray-800">Accessories</span>
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-rose-100 shadow-xs group-hover:scale-105 transition"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300" class="w-full h-full object-cover"></div>
+        <span class="text-[11px] font-semibold mt-1.5 text-gray-800">Accessories</span>
       </div>
     </div>
   </section>
 
   <!-- 6. TRENDING NOW SECTION -->
-  <section id="trending" class="max-w-7xl mx-auto px-4 mt-12">
-    <div class="flex justify-between items-end mb-5">
+  <section id="trending" class="max-w-7xl mx-auto px-3 sm:px-4 mt-10">
+    <div class="flex justify-between items-end mb-4">
       <div>
-        <h2 class="font-serif-title text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
+        <h2 class="font-serif-title text-lg md:text-xl font-bold text-gray-900 flex items-center gap-1.5">
           🔥 Trending Now
         </h2>
-        <p class="text-xs text-gray-500 mt-0.5">Most loved styles, handpicked for you.</p>
+        <p class="text-[11px] text-gray-500">Most loved styles, handpicked for you.</p>
       </div>
       <a href="#" class="text-xs font-bold text-gray-500 hover:text-black flex items-center gap-1">View All <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
     </div>
 
-    <!-- Product Cards Grid (6 Products exact match) -->
-    <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      <!-- Injected by JavaScript -->
-    </div>
+    <!-- Product Grid -->
+    <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4"></div>
   </section>
 
-  <!-- 7. SPLIT PROMO BANNERS -->
-  <section id="promo" class="max-w-7xl mx-auto px-4 mt-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+  <!-- 7. PROMO BANNERS -->
+  <section id="promo" class="max-w-7xl mx-auto px-3 sm:px-4 mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       
-      <!-- Under 299 Banner -->
-      <div class="bg-[#dcd1ba] rounded-2xl p-6 md:p-8 flex justify-between items-center relative overflow-hidden shadow-xs">
-        <div class="space-y-1 z-10">
-          <h3 class="font-serif-title text-3xl md:text-4xl font-black text-gray-900">Under<br>₹299</h3>
+      <!-- Under 299 -->
+      <div class="bg-[#dcd1ba] rounded-xl p-5 sm:p-6 flex justify-between items-center shadow-xs">
+        <div class="space-y-1">
+          <h3 class="font-serif-title text-2xl sm:text-3xl font-black text-gray-900">Under<br>₹299</h3>
           <p class="font-serif-title italic text-xs text-gray-700">Stylish picks for every budget</p>
-          <button class="mt-3 bg-white text-black font-bold text-xs px-5 py-2 rounded-md shadow-xs hover:bg-black hover:text-white transition">
+          <button class="mt-2 bg-white text-black font-bold text-xs px-4 py-1.5 rounded shadow-xs hover:bg-black hover:text-white transition">
             SHOP NOW ➔
           </button>
         </div>
-        <img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?w=400" class="w-36 h-36 md:w-44 md:h-44 object-cover rounded-xl shadow-md">
+        <img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?w=400" class="w-32 h-32 object-cover rounded-lg shadow">
       </div>
 
-      <!-- New Arrivals Banner -->
-      <div class="bg-[#f0dfd1] rounded-2xl p-6 md:p-8 flex justify-between items-center relative overflow-hidden shadow-xs">
-        <div class="space-y-1 z-10">
-          <h3 class="font-serif-title italic text-3xl md:text-4xl font-bold text-gray-900">New Arrivals</h3>
+      <!-- New Arrivals -->
+      <div class="bg-[#f0dfd1] rounded-xl p-5 sm:p-6 flex justify-between items-center shadow-xs">
+        <div class="space-y-1">
+          <h3 class="font-serif-title italic text-2xl sm:text-3xl font-bold text-gray-900">New Arrivals</h3>
           <p class="font-serif-title italic text-xs text-gray-700">Fresh styles. Just for you.</p>
-          <button class="mt-3 bg-[#1e2329] text-white font-bold text-xs px-6 py-2.5 rounded-md shadow hover:bg-black transition">
+          <button class="mt-2 bg-[#1e2329] text-white font-bold text-xs px-5 py-2 rounded shadow hover:bg-black transition">
             SHOP NOW ➔
           </button>
         </div>
-        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400" class="w-36 h-36 md:w-44 md:h-44 object-cover rounded-xl shadow-md">
+        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400" class="w-32 h-32 object-cover rounded-lg shadow">
       </div>
 
     </div>
   </section>
 
   <!-- 8. BEST SELLERS SECTION -->
-  <section id="bestsellers" class="max-w-7xl mx-auto px-4 mt-12 mb-16">
-    <div class="flex justify-between items-end mb-5">
+  <section id="bestsellers" class="max-w-7xl mx-auto px-3 sm:px-4 mt-10 mb-12">
+    <div class="flex justify-between items-end mb-4">
       <div>
-        <h2 class="font-serif-title text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
+        <h2 class="font-serif-title text-lg md:text-xl font-bold text-gray-900 flex items-center gap-1.5">
           ★ Best Sellers
         </h2>
-        <p class="text-xs text-gray-500 mt-0.5">Top rated. Highly loved. Always in demand.</p>
+        <p class="text-[11px] text-gray-500">Top rated. Highly loved. Always in demand.</p>
       </div>
       <a href="#" class="text-xs font-bold text-gray-500 hover:text-black flex items-center gap-1">View All <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
     </div>
 
     <!-- Best Sellers Grid -->
-    <div id="bestSellerGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      <!-- Injected by JavaScript -->
-    </div>
+    <div id="bestSellerGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4"></div>
   </section>
 
-  <!-- 9. SLIDING CART DRAWER & INSTANT COD ORDER -->
-  <div id="cartModal" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity flex justify-end">
+  <!-- 9. SHOPPING CART & COD CHECKOUT DRAWER -->
+  <div id="cartModal" class="fixed inset-0 bg-black/60 z-50 hidden flex justify-end">
     <div class="w-full max-w-md bg-white h-full shadow-2xl flex flex-col justify-between overflow-y-auto">
       
-      <!-- Drawer Top -->
       <div class="p-4 border-b flex justify-between items-center bg-[#fafafa]">
         <div class="flex items-center gap-2">
           <i class="fa-solid fa-bag-shopping text-rose-600"></i>
@@ -290,12 +255,8 @@
         <button onclick="closeCart()" class="text-gray-400 hover:text-black text-xl font-bold">&times;</button>
       </div>
 
-      <!-- Items List -->
-      <div id="cartContainer" class="p-4 flex-1 divide-y divide-gray-100 overflow-y-auto space-y-3">
-        <!-- Injected by JS -->
-      </div>
+      <div id="cartContainer" class="p-4 flex-1 divide-y divide-gray-100 overflow-y-auto space-y-3"></div>
 
-      <!-- Bill Breakdown -->
       <div class="p-4 bg-gray-50 border-t space-y-1 text-xs">
         <div class="flex justify-between text-gray-500">
           <span>Subtotal</span>
@@ -306,19 +267,18 @@
           <span>FREE</span>
         </div>
         <div class="flex justify-between text-sm font-black text-gray-900 pt-2 border-t">
-          <span>Grand Total (COD Payable)</span>
+          <span>Total Payable (COD)</span>
           <span id="grandTotalText" class="text-rose-600">₹0</span>
         </div>
       </div>
 
-      <!-- COD Form -->
       <form id="checkoutForm" class="p-4 bg-white border-t space-y-2.5">
         <h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Enter Delivery Address:</h4>
         <input type="text" id="custName" required placeholder="Full Name (Aapka Naam)" class="w-full border p-2 text-xs rounded-md outline-none focus:border-black">
         <input type="tel" id="custPhone" required pattern="[0-9]{10}" placeholder="WhatsApp / Mobile (10 Digit)" class="w-full border p-2 text-xs rounded-md outline-none focus:border-black">
-        <input type="text" id="custAddress" required placeholder="House No, Street, Landmark" class="w-full border p-2 text-xs rounded-md outline-none focus:border-black">
+        <input type="text" id="custAddress" required placeholder="House No, Street, Area Landmark" class="w-full border p-2 text-xs rounded-md outline-none focus:border-black">
         <div class="flex gap-2">
-          <input type="text" id="custCity" required placeholder="City" class="w-1/2 border p-2 text-xs rounded-md outline-none focus:border-black">
+          <input type="text" id="custCity" required placeholder="City / Gaon" class="w-1/2 border p-2 text-xs rounded-md outline-none focus:border-black">
           <input type="number" id="custPincode" required placeholder="Pincode" class="w-1/2 border p-2 text-xs rounded-md outline-none focus:border-black">
         </div>
         
@@ -331,37 +291,18 @@
   </div>
 
   <script>
-    // Exact products from the image
     const productsData = [
-      {
-        id: 1,
-        title: "Women's Printed Kurti",
-        cat: "Kurtis",
-        rating: "4.3",
-        reviews: "12.4k",
-        price: 399,
-        originalPrice: 599,
-        tag: "Best Seller",
-        tagColor: "bg-[#b8484a]",
-        img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400"
-      },
-      {
-        id: 2,
-        title: "Bodycon Dress",
-        cat: "Dresses",
-        rating: "4.4",
-        reviews: "8.7k",
-        price: 499,
-        originalPrice: 699,
-        tag: "Trending",
-        tagColor: "bg-[#b8484a]",
-        img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400"
-      },
-      {
-        id: 3,
-        title: "Co-ord Set",
-        cat: "Co-ord Sets",
-        rating: "4.2"
+      { id: 1, title: "Women's Printed Kurti", cat: "Kurtis", rating: "4.3", reviews: "12.4k", price: 399, originalPrice: 599, tag: "Best Seller", tagColor: "bg-[#b8484a]", img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400" },
+      { id: 2, title: "Bodycon Dress", cat: "Dresses", rating: "4.4", reviews: "8.7k", price: 499, originalPrice: 699, tag: "Trending", tagColor: "bg-[#b8484a]", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400" },
+      { id: 3, title: "Co-ord Set", cat: "Co-ord Sets", rating: "4.2", reviews: "9.1k", price: 549, originalPrice: 799, tag: "Hot Deal", tagColor: "bg-[#b8484a]", img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400" },
+      { id: 4, title: "Stylish Top", cat: "Tops", rating: "4.1", reviews: "6.8k", price: 299, originalPrice: 399, tag: "", tagColor: "", img: "https://images.unsplash.com/photo-1534126511673-b6899657816a?w=400" },
+      { id: 5, title: "Saree", cat: "Sarees", rating: "4.5", reviews: "15.2k", price: 499, originalPrice: 599, tag: "Best Seller", tagColor: "bg-[#b8484a]", img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400" },
+      { id: 6, title: "Wide Leg Jeans", cat: "Jeans", rating: "4.2", reviews: "7.3k", price: 449, originalPrice: 599, tag: "", tagColor: "", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400" }
+    ];
 
+    let cart = [];
+    const GOOGLE_SCRIPT_URL = 'AAPKA_GOOGLE_SCRIPT_URL_HERE'; // Apna deployed Google Apps Script URL yahan dalein
 
-
+    function renderCards(containerId, list) {
+      const container = document.getElementById(containerId);
+      con
