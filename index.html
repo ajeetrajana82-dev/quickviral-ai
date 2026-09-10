@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickViral.ai - AI Shorts Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { background-color: #030107; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  </style>
+</head>
+<body class="text-white min-h-screen flex flex-col justify-between pb-16">
+
+  <!-- 1. Header -->
+  <header class="px-4 py-3 border-b border-white/10 flex items-center justify-between bg-black/40 backdrop-blur-md sticky top-0 z-50">
+    <div class="text-xl font-black tracking-tight">
+      ⚡ Quick<span class="bg-gradient-to-r from-purple-400 to-rose-500 bg-clip-text text-transparent">Viral</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/40 text-amber-400 text-xs font-bold">
+        ⚡ 100 Credits
+      </div>
+      <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 border border-white flex items-center justify-center text-[10px] font-black">
+        AR
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Main Content -->
+  <main class="max-w-md mx-auto w-full px-3 py-3 space-y-3 flex-1">
+    
+    <!-- Input Dock -->
+    <div class="bg-[#120a22]/90 border border-purple-500/30 rounded-xl p-2.5 shadow-xl">
+      <div class="flex gap-1.5 mb-2">
+        <input id="yt-url" type="text" placeholder="🔗 Paste YouTube Link..." class="flex-1 bg-[#06020c] border border-purple-900/60 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 outline-none focus:border-purple-500" />
+        <button onclick="handleCut()" class="bg-gradient-to-r from-purple-600 to-rose-500 text-white font-black px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 active:scale-95 transition-all">
+          🚀 Cut Clips
+        </button>
+      </div>
+      <div class="grid grid-cols-4 gap-1 text-[9px] font-bold text-slate-300 text-center">
+        <div class="bg-white/5 border border-white/10 rounded py-1">⏱️ 30s-1m</div>
+        <div class="bg-white/5 border border-white/10 rounded py-1">🎬 3 Clips</div>
+        <div class="bg-white/5 border border-white/10 rounded py-1">🎨 MrBeast</div>
+        <div class="bg-white/5 border border-white/10 rounded py-1">🎯 FaceTrack</div>
+      </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="flex items-center justify-between text-xs font-black px-1">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-[11px]">Ready Shorts (AI Hook-Engine)</span>
+      </div>
+      <span class="text-[10px] text-purple-400 font-bold">⚡ ZIP (All 1080p)</span>
+    </div>
+
+    <!-- 3 Video Cards -->
+    <div class="grid grid-cols-3 gap-1.5">
+      <!-- Card 1 -->
+      <div class="bg-[#0d071a] border border-purple-950 rounded-lg p-1.5 flex flex-col justify-between">
+        <div class="h-28 rounded bg-gradient-to-b from-purple-900/40 to-[#07030e] border border-white/10 relative p-1 text-center flex flex-col justify-between">
+          <div class="flex justify-between text-[7px] font-black">
+            <span class="bg-emerald-500 text-black px-1 rounded">99%</span>
+            <span class="text-sky-400">YT/Reels</span>
+          </div>
+          <span class="bg-amber-400 text-black font-black text-[7.5px] px-1 py-0.5 rounded uppercase">NEVER DO THIS!</span>
+          <div class="text-[6.5px] text-purple-300">📊 Spike: 0:02s</div>
+        </div>
+        <div class="text-[8.5px] font-bold truncate mt-1">1. The Untold Truth</div>
+        <button onclick="alert('Downloading Clip 1...')" class="mt-1 w-full bg-white text-black font-black py-1 rounded text-[8px]">⬇ Download</button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-[#0d071a] border border-purple-950 rounded-lg p-1.5 flex flex-col justify-between">
+        <div class="h-28 rounded bg-gradient-to-b from-blue-900/40 to-[#07030e] border border-white/10 relative p-1 text-center flex flex-col justify-between">
+          <div class="flex justify-between text-[7px] font-black">
+            <span class="bg-emerald-500 text-black px-1 rounded">96%</span>
+            <span class="text-sky-400">YT/Reels</span>
+          </div>
+          <span class="bg-sky-400 text-black font-black text-[7.5px] px-1 py-0.5 rounded uppercase">STOP SCROLLING</span>
+          <div class="text-[6.5px] text-purple-300">📊 Volume Drop</div>
+        </div>
+        <div class="text-[8.5px] font-bold truncate mt-1">2. Secret Exposed</div>
+        <button onclick="alert('Downloading Clip 2...')" class="mt-1 w-full bg-white text-black font-black py-1 rounded text-[8px]">⬇ Download</button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-[#0d071a] border border-purple-950 rounded-lg p-1.5 flex flex-col justify-between">
+        <div class="h-28 rounded bg-gradient-to-b from-rose-900/40 to-[#07030e] border border-white/10 relative p-1 text-center flex flex-col justify-between">
+          <div class="flex justify-between text-[7px] font-black">
+            <span class="bg-emerald-500 text-black px-1 rounded">94%</span>
+            <span class="text-sky-400">YT/Reels</span>
+          </div>
+          <span class="bg-emerald-400 text-black font-black text-[7.5px] px-1 py-0.5 rounded uppercase">$10,000 / MO?</span>
+          <div class="text-[6.5px] text-purple-300">📊 Curiosity Hook</div>
+        </div>
+        <div class="text-[8.5px] font-bold truncate mt-1">3. The 10k Secret</div>
+        <button onclick="alert('Downloading Clip 3...')" class="mt-1 w-full bg-white text-black font-black py-1 rounded text-[8px]">⬇ Download</button>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="bg-[#0e091a]/70 border border-purple-500/20 rounded-lg p-2">
+      <div class="flex justify-between text-[8.5px] font-bold mb-1.5 text-purple-200">
+        <span>⭐ Creator Reviews <span class="text-amber-400">4.9/5</span></span>
+        <span class="text-[7.5px] text-purple-400">Verified Creators</span>
+      </div>
+      <div class="grid grid-cols-2 gap-1.5 text-[7px]">
+        <div class="bg-[#06020c] border border-purple-900/30 p-1.5 rounded">
+          <b class="text-white">Rohit K. <span class="text-amber-400">★★★★★</span></b>
+          <p class="text-slate-400 italic mt-0.5">"1 ghante ka podcast 2 min me 5 reels ban gaya!"</p>
+        </div>
+        <div class="bg-[#06020c] border border-purple-900/30 p-1.5 rounded">
+          <b class="text-white">Aman S. <span class="text-amber-400">★★★★★</span></b>
+          <p class="text-slate-400 italic mt-0.5">"MrBeast captions are insane. Best ₹99 investment."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- About & Upgrade Split -->
+    <div class="grid grid-cols-2 gap-1.5 text-[8px]">
+      <div class="bg-[#090514] border border-purple-950 rounded-lg p-2 flex flex-col justify-between">
+        <div>
+          <span class="text-[6.5px] font-black text-purple-400 uppercase">✦ About Engine</span>
+          <div class="font-extrabold text-white text-[9px]">QuickViral Studio</div>
+          <p class="text-slate-400 text-[7px] mt-0.5 leading-tight">लंबी वीडियोज़ को 1-क्लिक में वायरल Shorts में बदलें। ऑटो हुक व सबटाइटल्स।</p>
+        </div>
+        <div class="grid grid-cols-3 gap-0.5 text-center pt-1.5 border-t border-white/5 mt-1 text-[6.5px]">
+          <div><b class="block text-[8px] text-white">10M+</b>Shorts</div>
+          <div><b class="block text-[8px] text-white">98%</b>Virality</div>
+          <div><b class="block text-[8px] text-white">24/7</b>Cloud</div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-[#1b0a30] to-[#350842] border border-purple-600/70 rounded-lg p-2 flex flex-col justify-between">
+        <div>
+          <span class="bg-amber-500/20 text-amber-400 text-[6.5px] font-black px-1 rounded">⚡ VIP PASS</span>
+          <div class="text-[11px] font-black text-white mt-0.5">₹99 <span class="text-[7px] font-normal text-slate-300">/mo</span></div>
+          <div class="text-[6.8px] text-purple-200 mt-0.5 space-y-0.5">
+            <div>✔ Unlimited 4K Exports</div>
+            <div>✔ No Watermark • Fast GPU</div>
+            <div>✔ AI Copilot Chat Support</div>
+          </div>
+        </div>
+        <button onclick="alert('Redirecting to UPI Payment Gateway...')" class="w-full bg-white text-black font-black py-1 rounded text-[7.5px] mt-1">
+          Upgrade ₹99 →
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 3. Bottom App Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 h-11 bg-[#05020a]/95 border-t border-purple-950 flex items-center justify-around z-50 text-[8px]">
+    <div class="text-purple-400 font-bold flex flex-col items-center"><i class="fa-solid fa-clapperboard text-xs"></i><span>Studio</span></div>
+    <div class="text-slate-500 flex flex-col items-center"><i class="fa-solid fa-folder text-xs"></i><span>Library</span></div>
+    <div class="text-slate-500 flex flex-col items-center"><i class="fa-solid fa-robot text-xs"></i><span>Copilot</span></div>
+    <div class="text-slate-500 flex flex-col items-center"><i class="fa-solid fa-credit-card text-xs"></i><span>Pro (₹99)</span></div>
+    <div class="text-slate-500 flex flex-col items-center"><i class="fa-solid fa-user text-xs"></i><span>Profile</span></div>
+  </nav>
+
+  <script>
+    function handleCut() {
+      const url = document.getElementById('yt-url').value;
+      if (!url) {
+        alert('कृपया YouTube लिंक पेस्ट करें!');
+        return;
+      }
+      alert('🚀 AI Hook Engine ने प्रोसेस शुरू कर दिया है!');
+    }
+  </script>
+</body>
+          </html>
+  
