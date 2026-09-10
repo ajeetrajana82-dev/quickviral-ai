@@ -1,9 +1,10 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-import re
-import urllib.request
-import json
+from fastapi.responses import FileResponse
+from fastapi.background import BackgroundTasks
+import subprocess
+import os
+import uuid
 
 app = FastAPI()
 
@@ -15,71 +16,59 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class VideoRequest(BaseModel):
-    url: str
-
-def extract_video_id(url: str):
-    regex = r'(?:v=|\/|youtu\.be\/)([0-9A-Za-z_-]{11})'
-    match = re.search(regex, url)
-    return match.group(1) if match else "sample"
+def cleanup_files(*files):
+    for f in files:
+        if os.path.exists(f):
+            try:
+                os.remove(f)
+            except Exception:
+                pass
 
 @app.get("/")
 def home():
-    return {"status": "QuickViral AI Engine Active 🚀"}
+    return {"status": "QuickViral Upload Engine Ready 🚀"}
 
-@app.post("/process-video")
-def process_video(req: VideoRequest):
-    url = req.url.strip()
-    if not url:
-        raise HTTPException(status_code=400, detail="URL Missing")
+@app.post("/upload-cut")
+async def upload_cut(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+    job_id = str(uuid.uuid4())[:8]
+    input_file = f"input_{job_id}.mp4"
+    output_file = f"short_{job_id}.mp4"
 
-    video_id = extract_video_id(url)
-    
-    # YouTube Official oEmbed API से रियल टाइटल निकालना
-    video_title = "Trending Viral Reel"
     try:
-        oembed_url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json"
-        req_obj = urllib.request.Request(oembed_url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req_obj, timeout=5) as response:
-            data = json.loads(response.read().decode())
-            video_title = data.get("title", video_title)
-    except Exception:
-        pass
+        # यूजर द्वारा भेजी गई वीडियो फाइल को सर्वर पर सेव करना
+        with open(input_file, "wb") as f:
+            content = await file.read()
+            f.write(content)
 
-    # 3 ऑटोमैटिक वायरल क्लिप्स डेटा
-    clips = [
-        {
-            "id": 1,
-            "title": f"Hook 1: {video_title[:24]}...",
-            "score": "99%",
-            "hook": "NEVER DO THIS!",
-            "spike": "0:02s - 0:32s",
-            "thumb": f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg" if video_id != "sample" else "https://picsum.photos/400/600",
-            "download_url": "https://assets.mixkit.co/videos/preview/mixkit-vertical-video-of-a-skater-performing-tricks-42417-large.mp4"
-        },
-        {
-            "id": 2,
-            "title": f"Hook 2: The Hidden Truth",
-            "score": "96%",
-            "hook": "WAIT FOR IT...",
-            "spike": "1:15s - 1:45s",
-            "thumb": f"https://img.youtube.com/vi/{video_id}/mqdefault.jpg" if video_id != "sample" else "https://picsum.photos/400/600",
-            "download_url": "https://assets.mixkit.co/videos/preview/mixkit-vertical-view-of-a-neon-sign-at-night-42422-large.mp4"
-        },
-        {
-            "id": 3,
-            "title": f"Hook 3: 100x Growth Secret",
-            "score": "94%",
-            "hook": "SECRET EXPOSED",
-            "spike": "2:30s - 3:00s",
-            "thumb": f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg" if video_id != "sample" else "https://picsum.photos/400/600",
-            "download_url": "https://assets.mixkit.co/videos/preview/mixkit-vertical-portrait-of-a-young-woman-smiling-42419-large.mp4"
-        }
-    ]
+        # FFmpeg से 9:16 Shorts (Vertical) में क्रॉप और 15-20 सेकंड कट
+        # ih*(9/16):ih सेंटर से 9:16 आस्पेक्ट रेशियो में क्रॉप करता है
+        crop_filter = "crop=ih*(9/16):ih,scale=720:1280"
+        ffmpeg_cmd = [
+            "ffmpeg", "-y",
+            "-ss", "00:00:00",
+            "-t", "00:00:15",
+            "-i", input_file,
+            "-vf", crop_filter,
+            "-c:v", "libx264",
+            "-preset", "ultrafast",
+            "-c:a", "aac",
+            output_file
+        ]
 
-    return {
-        "status": "success",
-        "video_title": video_title,
-        "clips": clips
-        }
-    
+        res = subprocess.run(ffmpeg_cmd, capture_output=True, text=True)
+        if res.returncode != 0:
+            raise Exception(f"FFmpeg Error: {res.stderr[:200]}")
+
+        # डाउनलोड पूरा होने के बाद सर्वर से फाइल डिलीट कर दी जाएगी
+        background_tasks.add_task(cleanup_files, input_file, output_file)
+
+        return FileResponse(
+            path=output_file,
+            filename=f"QuickViral_{job_id}.mp4",
+            media_type="video/mp4"
+        )
+
+    except Exception as e:
+        cleanup_files(input_file, output_file)
+        raise HTTPException(status_code=500, detail=str(e))
+        
